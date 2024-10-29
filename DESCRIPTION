@@ -1,0 +1,28 @@
+Type: Package
+Package: chevreul
+Title: Tools for managing SingleCellExperiment objects as projects
+Version: 0.1.0
+Authors@R: c(
+    person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
+    person("Bhavana", "Bhat", , "bhavanabhat29@gmail.com", role = "aut")
+    )
+Description: Tools for managing SingleCellExperiment objects as projects. 
+    Includes functions for analysis and visualization of single-cell data. 
+    Also included is a shiny app for visualization of pre-processed scRNA data.
+    Supported by NIH grants R01CA137124 and R01EY026661 to David Cobrinik.
+License: MIT + file LICENSE
+URL: https://github.com/cobriniklab/chevreul,
+    https://cobriniklab.github.io/chevreul/
+Date: 2024-03-24
+BugReports: https://github.com/cobriniklab/chevreul/issues
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    chevreulPlot (>= 0.99.1),
+    chevreulProcess (>= 0.99.1),
+    chevreulShiny (>= 0.99.1)
+Remotes: 
+    whtns/chevreulShiny,
+    whtns/chevreulProcess,
+    whtns/chevreulPlot
