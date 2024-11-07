@@ -1,7 +1,6 @@
 Type: Package
 Package: chevreul
-Title: Processing, plotting, and interactive eda of full-length scRNA-seq as 
-SingleCellExperiments
+Title: Processing, plotting, and interactive eda of full-length scRNA-seq as SingleCellExperiments
 Version: 0.1.0
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
