@@ -3,6 +3,35 @@
 
 # chevreul
 
+<!-- badges: start -->
+
+[![GitHub
+issues](https://img.shields.io/github/issues/cobriniklab/chevreul)](https://github.com/cobriniklab/chevreul/issues)
+[![GitHub
+pulls](https://img.shields.io/github/issues-pr/cobriniklab/chevreul)](https://github.com/cobriniklab/chevreul/pulls)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Bioc release
+status](http://www.bioconductor.org/shields/build/release/bioc/chevreul.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/chevreul)
+[![Bioc devel
+status](http://www.bioconductor.org/shields/build/devel/bioc/chevreul.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/chevreul)
+[![Bioc downloads
+rank](https://bioconductor.org/shields/downloads/release/chevreul.svg)](http://bioconductor.org/packages/stats/bioc/chevreul/)
+[![Bioc
+support](https://bioconductor.org/shields/posts/chevreul.svg)](https://support.bioconductor.org/tag/chevreul)
+[![Bioc
+history](https://bioconductor.org/shields/years-in-bioc/chevreul.svg)](https://bioconductor.org/packages/release/bioc/html/chevreul.html#since)
+[![Bioc last
+commit](https://bioconductor.org/shields/lastcommit/devel/bioc/chevreul.svg)](http://bioconductor.org/checkResults/devel/bioc-LATEST/chevreul/)
+[![Bioc
+dependencies](https://bioconductor.org/shields/dependencies/release/chevreul.svg)](https://bioconductor.org/packages/release/bioc/html/chevreul.html#since)
+[![check-bioc](https://github.com/cobriniklab/chevreul/actions/workflows/check-bioc.yml/badge.svg)](https://github.com/cobriniklab/chevreul/actions/workflows/check-bioc.yml)
+[![Codecov test
+coverage](https://codecov.io/gh/cobriniklab/chevreul/graph/badge.svg)](https://app.codecov.io/gh/cobriniklab/chevreul)
+<!-- badges: end -->
+
+# chevreul
+
 This package includes a set of Shiny apps for exploring single cell RNA
 datasets processed as a SingleCellExperiment
 
@@ -22,19 +51,33 @@ There are also convenient functions for:
 > (10x) data, though most can be adjusted. Keep in mind best practices
 > regarding normalization, dimensional reduction, etc. when using.
 
-## Installation
+## Installation instructions
 
-You can install the released version of chevreul from
-<a href="https://github.com/cobriniklab/chevreul" target="_blank" rel="noopener noreferrer">github</a>
-with:
+Get the latest stable `R` release from
+[CRAN](http://cran.r-project.org/). Then install `chevreul` from
+[Bioconductor](http://bioconductor.org/) using the following code:
+
+``` r
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+BiocManager::install("chevreul")
+```
+
+And the development version from
+[GitHub](https://github.com/cobriniklab/chevreul) with:
+
+``` r
+BiocManager::install("cobriniklab/chevreul")
+```
 
 ### Install locally and run in three steps:
 
 You can install chevreul locally using the following steps:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("cobriniklab/chevreul")
+BiocManager::install("cobriniklab/chevreul")
 library(chevreul)
 create_project_db()
 ```
@@ -42,7 +85,7 @@ create_project_db()
 You can also customize the location of the app using these steps:
 
 ``` r
-devtools::install_github("cobriniklab/chevreul")
+BiocManager::install("cobriniklab/chevreul")
 library(chevreul)
 create_project_db(destdir = "/your/path/to/app")
 ```

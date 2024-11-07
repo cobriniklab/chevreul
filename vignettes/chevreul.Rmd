@@ -1,0 +1,75 @@
+---
+title: "Introduction to chevreul"
+author: 
+  - name: Your name
+    affiliation:
+    - Your institution
+    email: your.email@somewhere.com
+output: 
+  BiocStyle::html_document:
+    self_contained: yes
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    code_folding: show
+date: "`r doc_date()`"
+package: "`r pkg_ver('chevreul')`"
+vignette: >
+  %\VignetteIndexEntry{Introduction to chevreul}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>",
+    crop = NULL ## Related to https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016656.html
+)
+```
+
+# Basics
+
+## Install `chevreul`
+
+You can install `r Biocpkg("chevreul")` by using the following commands in your `R` session:
+
+```{r "install", eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+BiocManager::install("chevreul")
+
+## Check that you have a valid Bioconductor installation
+BiocManager::valid()
+```
+
+## Asking for help
+
+Ask for help at [Bioconductor support site](https://support.bioconductor.org/). Remember to use the `chevreul` tag and check [the older posts](https://support.bioconductor.org/tag/chevreul/). Other alternatives are available such as creating GitHub issues and tweeting. However, please note that if you want to receive help you should adhere to the [posting guidelines](http://www.bioconductor.org/help/support/posting-guide/).
+
+## Citing `chevreul`
+
+We hope that `r Biocpkg("chevreul")` will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
+
+```{r "citation"}
+## Citation info
+citation("chevreul")
+```
+
+# Quick start to using `chevreul`
+
+```{r "start", message=FALSE}
+library("chevreul")
+```
+
+
+`R` session information.
+
+```{r reproduce3, echo=FALSE}
+## Session info
+library("sessioninfo")
+options(width = 120)
+session_info()
+```

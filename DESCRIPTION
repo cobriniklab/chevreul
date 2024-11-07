@@ -1,8 +1,7 @@
-Type: Package
 Package: chevreul
-Title: Processing, plotting, and interactive eda of full-length scRNA-seq as 
-SingleCellExperiments
-Version: 0.1.0
+Title: Processing, plotting, and  eda of full-length scRNA-seq
+Version: 0.99.0
+Date: 2024-11-07
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
@@ -15,15 +14,17 @@ Description: Tools for managing SingleCellExperiment objects as projects.
 License: MIT + file LICENSE
 URL: https://github.com/cobriniklab/chevreul,
     https://cobriniklab.github.io/chevreul/
-Date: 2024-03-24
-BugReports: https://github.com/cobriniklab/chevreul/issues
+BugReports: https://support.bioconductor.org/tag/chevreul
+biocViews: Software
 Encoding: UTF-8
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
 Imports: 
     chevreulPlot (>= 0.99.1),
     chevreulProcess (>= 0.99.1),
     chevreulShiny (>= 0.99.1)
-Remotes: 
-    whtns/chevreulShiny,
-    whtns/chevreulProcess,
-    whtns/chevreulPlot
+Suggests: 
+    BiocStyle,
+    knitr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
