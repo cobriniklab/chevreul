@@ -1,6 +1,6 @@
 Package: chevreul
 Title: Processing, plotting, and  eda of full-length scRNA-seq
-Version: 0.99.3
+Version: 0.99.4
 Date: 2024-11-07
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
@@ -27,7 +27,8 @@ RoxygenNote: 7.3.1
 Imports: 
     chevreulPlot (>= 0.99.1),
     chevreulProcess (>= 0.99.1),
-    chevreulShiny (>= 0.99.1)
+    chevreulShiny (>= 0.99.1),
+    sessioninfo
 Suggests: 
     BiocStyle,
     knitr,
