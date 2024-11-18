@@ -14,8 +14,8 @@ chevreul_attach <- function() {
     # Create a line rule with two text labels:
     # "Attaching packages" on the left-hand side and
     # chevreul with the package version on the right-hand side
-    load_header <- cli::rule(
-        left = crayon::bold("Attaching packages"),
+    load_header <- rule(
+        left = bold("Attaching packages"),
         right = paste0("chevreul ", package_version("chevreul"))
     )
 
@@ -23,8 +23,8 @@ chevreul_attach <- function() {
     versions <- vapply(to_load, package_version, character(1))
 
     packages <- paste0(
-        crayon::green(cli::symbol$tick), " ", crayon::blue(format(to_load)), " ",
-        crayon::col_align(versions, max(crayon::col_nchar(versions)))
+        green(symbol$tick), " ", blue(format(to_load)), " ",
+        col_align(versions, max(col_nchar(versions)))
     )
 
     # Format for two columns
@@ -67,7 +67,7 @@ chevreul_detach <- function() {
 #' chevreul_packages()
 chevreul_packages <- function() {
     # get all imports from chevreul's package description file
-    raw <- utils::packageDescription("chevreul")$Imports
+    raw <- packageDescription("chevreul")$Imports
     # return a character vector of all the imports
     imports <- strsplit(raw, ",")[[1]]
     # "^\\s+" matches white space at the beginning of a character string
