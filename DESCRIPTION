@@ -1,6 +1,6 @@
 Package: chevreul
 Title: Processing, plotting, and  eda of full-length scRNA-seq
-Version: 0.99.0
+Version: 0.99.1
 Date: 2024-11-07
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 

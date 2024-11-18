@@ -70,6 +70,6 @@ library("chevreul")
 ```{r reproduce3, echo=FALSE}
 ## Session info
 library("sessioninfo")
-options(width = 120)
+options(width = 80)
 session_info()
 ```
