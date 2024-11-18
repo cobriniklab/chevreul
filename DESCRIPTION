@@ -1,6 +1,6 @@
 Package: chevreul
 Title: Processing, plotting, and  eda of full-length scRNA-seq
-Version: 0.99.1
+Version: 0.99.2
 Date: 2024-11-07
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
@@ -15,7 +15,10 @@ License: MIT + file LICENSE
 URL: https://github.com/cobriniklab/chevreul,
     https://cobriniklab.github.io/chevreul/
 BugReports: https://support.bioconductor.org/tag/chevreul
-biocViews: Software
+biocViews: 
+    Coverage, RNASeq, Sequencing, Visualization, GeneExpression, 
+    Transcription, SingleCell, Transcriptomics, Normalization, Preprocessing, 
+    QualityControl, DimensionReduction, DataImport
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

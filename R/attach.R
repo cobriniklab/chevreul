@@ -37,9 +37,9 @@ chevreul_attach <- function() {
     # paste the packages in column one with a space and those not in column 1
     info <- paste0(packages[col1], "     ", packages[-col1])
 
-    # display the message!
-    msg(load_header)
-    msg(paste(info, collapse = "\n"))
+    # # display the message!
+    # msg(load_header)
+    # msg(paste(info, collapse = "\n"))
 
     # Load the constituent packages!
     # character.only = TRUE must be used in order to
