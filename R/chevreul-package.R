@@ -2,7 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom cli rule
 #' @importFrom cli symbol
 #' @importFrom crayon black
 #' @importFrom crayon blue

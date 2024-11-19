@@ -1,5 +1,8 @@
 pkgs <- c("chevreulShiny", "chevreulProcess", "chevreulPlot")
 
+#' Attach package message
+#'
+#' @return a message after package loading
 chevreul_attach <- function() {
     # Create `to_load` which is a character vector of all chevreul
     # packages not loaded in the current R session.
@@ -10,14 +13,6 @@ chevreul_attach <- function() {
     if (length(to_load) == 0) {
         return(invisible())
     }
-
-    # Create a line rule with two text labels:
-    # "Attaching packages" on the left-hand side and
-    # chevreul with the package version on the right-hand side
-    load_header <- rule(
-        left = bold("Attaching packages"),
-        right = paste0("chevreul ", package_version("chevreul"))
-    )
 
     # Return a character string containing the package version for each of chevreul's constituents
     versions <- vapply(to_load, package_version, character(1))
