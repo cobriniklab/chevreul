@@ -54,12 +54,7 @@ chevreul_detach <- function() {
     invisible()
 }
 
-#' List all packages imported by chevreul
-#'
-#' @export
-#'
-#' @examples
-#' chevreul_packages()
+
 chevreul_packages <- function() {
     # get all imports from chevreul's package description file
     raw <- packageDescription("chevreul")$Imports
