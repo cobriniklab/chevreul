@@ -104,6 +104,7 @@ chevreul_sce <- human_gene_transcript_sce()
 chevreul_sce
 ```
 
+
 ## Shiny app
 
 chevreul includes a shiny app for exploratory scRNA data analysis and 
