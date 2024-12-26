@@ -23,6 +23,6 @@ Imports:
     chevreulProcess (>= 0.99.1),
     chevreulShiny (>= 0.99.1)
 Remotes: 
-    whtns/chevreulShiny,
-    whtns/chevreulProcess,
-    whtns/chevreulPlot
+    cobriniklab/chevreulShiny,
+    cobriniklab/chevreulProcess,
+    cobriniklab/chevreulPlot
