@@ -6,21 +6,35 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-    eval = FALSE,
     collapse = TRUE,
     comment = "#>",
-    dpi = 900,
     fig.path = "man/figures/README-",
     out.width = "100%"
 )
 ```
 
+# Chevreul
+
+<!-- badges: start -->
+[![GitHub issues](https://img.shields.io/github/issues/cobriniklab/chevreul)](https://github.com/cobriniklab/chevreul/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/cobriniklab/chevreul)](https://github.com/cobriniklab/chevreul/pulls)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Bioc release status](http://www.bioconductor.org/shields/build/release/bioc/chevreul.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/chevreul)
+[![Bioc devel status](http://www.bioconductor.org/shields/build/devel/bioc/chevreul.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/chevreul)
+[![Bioc downloads rank](https://bioconductor.org/shields/downloads/release/chevreul.svg)](http://bioconductor.org/packages/stats/bioc/chevreul/)
+[![Bioc support](https://bioconductor.org/shields/posts/chevreul.svg)](https://support.bioconductor.org/tag/chevreul)
+[![Bioc history](https://bioconductor.org/shields/years-in-bioc/chevreul.svg)](https://bioconductor.org/packages/release/bioc/html/chevreul.html#since)
+[![Bioc last commit](https://bioconductor.org/shields/lastcommit/devel/bioc/chevreul.svg)](http://bioconductor.org/checkResults/devel/bioc-LATEST/chevreul/)
+[![Bioc dependencies](https://bioconductor.org/shields/dependencies/release/chevreul.svg)](https://bioconductor.org/packages/release/bioc/html/chevreul.html#since)
+[![check-bioc](https://github.com/cobriniklab/chevreul/actions/workflows/check-bioc.yml/badge.svg)](https://github.com/cobriniklab/chevreul/actions/workflows/check-bioc.yml)
+[![Codecov test coverage](https://codecov.io/gh/cobriniklab/chevreul/graph/badge.svg)](https://app.codecov.io/gh/cobriniklab/chevreul)
+<!-- badges: end -->
 
 # chevreul
 
 This package includes a set of Shiny apps for exploring single cell RNA datasets processed as a SingleCellExperiment
 
-A demo using a human gene transcript dataset from Shayler et al. (link) is available <a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer">here</a>
+A demo using a human gene transcript dataset from Shayler et al. is available <a href="http://cobrinik-1.saban-chla.usc.edu:8080/app/objectApp" target="_blank" rel="noopener noreferrer">here</a>
 
 There are also convenient functions for:
 
@@ -32,29 +46,21 @@ There are also convenient functions for:
 > [!WARNING]
 > chevreul was designed for full-length smart-seq based single cell data. Default settings may not be appropriate for droplet (10x) data, though most can be adjusted. Keep in mind best practices regarding normalization, dimensional reduction, etc. when using. 
 
-## Installation
+## Installation instructions
 
-You can install the released version of chevreul from <a href="https://github.com/cobriniklab/chevreul" target="_blank" rel="noopener noreferrer">github</a> with:
+Chevreul loads three [Bioconductor](http://bioconductor.org/) packages 
 
-### Install locally and run in three steps:
+1. [`chevreulProcess`](https://github.com/cobriniklab/chevreulProcess)
+2. [`chevreulPlot`](https://github.com/cobriniklab/chevreulPlot)
+3. [`chevreulShiny`](https://github.com/cobriniklab/chevreulShiny)
 
-You can install chevreul locally using the following steps:
+These enable standardized processing, plotting, and interactive analysis of SingleCellExperiments, respectively.
 
-```{r, eval=FALSE}
-install.packages("devtools")
-devtools::install_github("cobriniklab/chevreul")
-library(chevreul)
-create_project_db()
+Get the latest stable `R` release from [CRAN](http://cran.r-project.org/). Then install `chevreul` and its dependencies using the following code:
+
+```{r 'install_dev', eval = FALSE}
+BiocManager::install("cobriniklab/chevreul")
 ```
-
-You can also customize the location of the app using these steps:
-
-```{r, eval=FALSE}
-devtools::install_github("cobriniklab/chevreul")
-library(chevreul)
-create_project_db(destdir = "/your/path/to/app")
-```
-
 
 ## TLDR
 
@@ -71,8 +77,8 @@ Chevreul provides a single command to:
 By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.
 
 ```{r, cache = FALSE, eval = FALSE}
-clustered_sce <- clustering_workflow(chevreul_sce,
-    experiment_name = "sce_hu_trans",
+clustered_sce <- clustering_workflow(tiny_sce,
+    experiment_name = "tiny_sce",
     organism = "human"
 )
 ```
@@ -80,5 +86,11 @@ clustered_sce <- clustering_workflow(chevreul_sce,
 ## Get a first look at a processed dataset using an interactive shiny app
 
 ```{r, eval = FALSE}
-minimalChevreulApp(chevreul_sce)
+minimalChevreulApp(tiny_sce)
 ```
+
+## Transcript-level quantification
+
+Transcripts may be quantified using any of several methods, including alignment-free methods best used with well-annotated transcriptomes (Salmon, Kallisto), alignment-based methods best used to detect novel isoforms (StringTie2), or long-read methods for use with long-read sequencing data (IsoQuant). Transcript-level data must be loaded into the SingleCellExperiment object as an alternative experiment prior to processing with Chevreul. 
+
+
