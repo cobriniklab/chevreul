@@ -18,6 +18,8 @@ Date: 2024-03-24
 BugReports: https://github.com/cobriniklab/chevreul/issues
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 4.3.0)
 Imports: 
     chevreulPlot (>= 0.99.1),
     chevreulProcess (>= 0.99.1),

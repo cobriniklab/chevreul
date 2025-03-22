@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/cobriniklab/chevreul/graph/badge.svg)](https://a
 # chevreul
 
 This package includes a set of Shiny apps for exploring single cell RNA
-datasets processed as a SingleCellExperiment
+datasets processed as SingleCellExperiments
 
 A demo using a human gene transcript dataset from Shayler et al. is
 available
@@ -26,9 +26,9 @@ available
 
 There are also convenient functions for:
 
-- Clustering and Dimensional Reduction of Raw Sequencing Data.
-- Integration and Label Transfer
-- Louvain Clustering at a Range of Resolutions
+- Clustering and dimensionality reduction of raw sequencing data.
+- Integration and label transfer
+- Louvain clustering at a range of resolutions
 - Cell cycle state regression and labeling
 
 > \[!WARNING\] chevreul was designed for full-length smart-seq based
@@ -47,11 +47,23 @@ Chevreul loads three [Bioconductor](http://bioconductor.org/) packages
 These enable standardized processing, plotting, and interactive analysis
 of SingleCellExperiments, respectively.
 
+When installing R packages on slow internet connections, several issues
+can arise, particularly with larger packages or when using functions
+like remotes::install_github(). Here are some strategies to address
+bandwidth-related problems: Increase Timeout and Use Alternative
+Download Methods
+
+Set a longer timeout for downloads: `options(timeout = 9999999)`
+
+Specify the download method: `options(download.file.method = "libcurl")`
+
 Get the latest stable `R` release from
 [CRAN](http://cran.r-project.org/). Then install `chevreul` and its
 dependencies using the following code:
 
 ``` r
+install.packages("remotes")
+install.packages("BiocManager")
 BiocManager::install("cobriniklab/chevreul")
 ```
 
@@ -60,9 +72,7 @@ BiocManager::install("cobriniklab/chevreul")
 Chevreul provides a single command to:
 
 - construct a SingleCellExperiment object
-
 - filter genes by minimum expression and ubiquity
-
 - normalize and scale expression by any of several methods packaged in
   SingleCellExperiment
 
@@ -73,7 +83,7 @@ By default clustering will be run at ten different resolutions between
 argument as a numeric vector.
 
 ``` r
-clustered_sce <- clustering_workflow(tiny_sce,
+clustered_sce <- sce_clustering_workflow(tiny_sce,
     experiment_name = "tiny_sce",
     organism = "human"
 )
