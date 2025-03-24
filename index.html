@@ -50,16 +50,12 @@
 </h1></div>
 <!-- badges: start -->
 
-</div>
-<div class="section level1">
-<h1 id="chevreul-1">chevreul<a class="anchor" aria-label="anchor" href="#chevreul-1"></a>
-</h1>
-<p>This package includes a set of Shiny apps for exploring single cell RNA datasets processed as SingleCellExperiments</p>
-<p>A demo using a human gene transcript dataset from Shayler et al. is available <a href="http://cobrinik-1.saban-chla.usc.edu:8080/app/objectApp" target="_blank" rel="noopener noreferrer" class="external-link">here</a></p>
+<p>This package includes a set of Shiny apps for exploring single cell RNA sequencing (scRNA-seq) datasets processed as <a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" target="_blank" rel="noopener noreferrer" class="external-link">SingleCellExperiments</a></p>
+<p>A demo with a developing human retina scRNA-seq dataset from Shayler et al. is available <a href="http://cobrinik-1.saban-chla.usc.edu:8080/app/objectApp" target="_blank" rel="noopener noreferrer" class="external-link">here</a></p>
 <p>There are also convenient functions for:</p>
 <ul>
 <li>Clustering and dimensionality reduction of raw sequencing data.</li>
-<li>Integration and label transfer</li>
+<li>Integration (batch correction)</li>
 <li>Louvain clustering at a range of resolutions</li>
 <li>Cell cycle state regression and labeling</li>
 </ul>
@@ -69,21 +65,39 @@
 <div class="section level2">
 <h2 id="installation-instructions">Installation instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h2>
-<p>Chevreul loads three <a href="http://bioconductor.org/" class="external-link">Bioconductor</a> packages</p>
+<p>Chevreul depends on a minimum R version 4.4. The current<br>
+Chevreul loads three <a href="http://bioconductor.org/" class="external-link">Bioconductor</a> packages</p>
 <ol style="list-style-type: decimal">
 <li><a href="https://github.com/cobriniklab/chevreulProcess" class="external-link"><code>chevreulProcess</code></a></li>
 <li><a href="https://github.com/cobriniklab/chevreulPlot" class="external-link"><code>chevreulPlot</code></a></li>
 <li><a href="https://github.com/cobriniklab/chevreulShiny" class="external-link"><code>chevreulShiny</code></a></li>
 </ol>
 <p>These enable standardized processing, plotting, and interactive analysis of SingleCellExperiments, respectively.</p>
-<p>When installing R packages on slow internet connections, several issues can arise, particularly with larger packages or when using functions like remotes::install_github(). Here are some strategies to address bandwidth-related problems: Increase Timeout and Use Alternative Download Methods</p>
-<p>Set a longer timeout for downloads: <code>options(timeout = 9999999)</code></p>
-<p>Specify the download method: <code>options(download.file.method = "libcurl")</code></p>
-<p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/" class="external-link">CRAN</a>. Then install <code>chevreul</code> and its dependencies using the following code:</p>
+<p><code>Chevreul</code> depends on a minimum R version &gt;=4.4 Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/" class="external-link">CRAN</a>. Then install <code>chevreul</code> and its dependencies using the following code:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"cobriniklab/chevreul"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="troubleshooting-installation">Troubleshooting installation<a class="anchor" aria-label="anchor" href="#troubleshooting-installation"></a>
+</h3>
+<div class="section level4">
+<h4 id="dependency-management">Dependency management<a class="anchor" aria-label="anchor" href="#dependency-management"></a>
+</h4>
+<p>When installing an R package like Chevreul with many dependencies, conflicts with existing installations can arise. This is a common issue in R package management. Here are some strategies to address this problem:</p>
+<ol style="list-style-type: decimal">
+<li><p>Consider <a href="https://rstudio.github.io/renv/articles/renv.html" target="_blank" rel="noopener noreferrer" class="external-link">renv</a> for dependency management. This tool creates isolated environments for each project, ensuring that package versions don’t conflict across different projects.</p></li>
+<li><p>Use the conflicted Package The <a href="https://conflicted.r-lib.org" target="_blank" rel="noopener noreferrer" class="external-link">conflicted</a> package provides an alternative conflict resolution strategy. It makes every conflict an error, forcing you to choose which function to use</p></li>
+</ol>
+</div>
+<div class="section level4">
+<h4 id="slow-internet-connection">Slow internet connection<a class="anchor" aria-label="anchor" href="#slow-internet-connection"></a>
+</h4>
+<p>When installing R packages on slow internet connections, several issues can arise, particularly with larger packages or when using functions like remotes::install_github(). Here are some strategies to address bandwidth-related problems:</p>
+<p>Set a longer timeout for downloads: <code>options(timeout = 9999999)</code></p>
+<p>Specify the download method: <code>options(download.file.method = "libcurl")</code></p>
+</div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="tldr">TLDR<a class="anchor" aria-label="anchor" href="#tldr"></a>
@@ -100,24 +114,39 @@
 </h2>
 <p>By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">clustered_sce</span> <span class="op">&lt;-</span> <span class="fu">sce_clustering_workflow</span><span class="op">(</span><span class="va">tiny_sce</span>,</span>
-<span>    experiment_name <span class="op">=</span> <span class="st">"tiny_sce"</span>,</span>
-<span>    organism <span class="op">=</span> <span class="st">"human"</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"small_example_dataset"</span><span class="op">)</span></span>
+<span><span class="fu">sce_clustering_workflow</span><span class="op">(</span><span class="va">small_example_dataset</span>, experiment_name <span class="op">=</span> <span class="st">"tiny_sce"</span>, organism <span class="op">=</span> <span class="st">"human"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="get-a-first-look-at-a-processed-dataset-using-an-interactive-shiny-app">Get a first look at a processed dataset using an interactive shiny app<a class="anchor" aria-label="anchor" href="#get-a-first-look-at-a-processed-dataset-using-an-interactive-shiny-app"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">minimalChevreulApp</span><span class="op">(</span><span class="va">tiny_sce</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"tiny_sce"</span><span class="op">)</span></span>
+<span><span class="fu">minimalChevreulApp</span><span class="op">(</span><span class="va">tiny_sce</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="transcript-level-quantification">Transcript-level quantification<a class="anchor" aria-label="anchor" href="#transcript-level-quantification"></a>
 </h2>
 <p>Transcripts may be quantified using any of several methods, including alignment-free methods best used with well-annotated transcriptomes (Salmon, Kallisto), alignment-based methods best used to detect novel isoforms (StringTie2), or long-read methods for use with long-read sequencing data (IsoQuant). Transcript-level data must be loaded into the SingleCellExperiment object as an alternative experiment prior to processing with Chevreul.</p>
 </div>
+<div class="section level2">
+<h2 id="integration-implementation">Integration implementation<a class="anchor" aria-label="anchor" href="#integration-implementation"></a>
+</h2>
+<p>Chevreul implements integration (batch correction) of scRNA-seq datasets using the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/batchelor/inst/doc/correction.html" target="_blank" rel="noopener noreferrer" class="external-link">batchelor</a> package. Default settings rely on the <code>correctExperiments()</code> function to preserve pre-existing data and metadata from input objects in the corrected output.</p>
 </div>
-
+<div class="section level2">
+<h2 id="hardware-requirements">Hardware requirements<a class="anchor" aria-label="anchor" href="#hardware-requirements"></a>
+</h2>
+<p>Recommended minimum hardware requirements for running Chevreul are as follows:</p>
+<ul>
+<li>RAM: A minimum of 16 GB RAM is recommended for initial analysis. However, for larger datasets or more complex analyses, 64 GB or more is advisable.</li>
+<li>CPU: Having multiple cores can be beneficial for parallel processing.</li>
+<li>Storage: Sufficient storage space is necessary, especially for temporary files. The exact amount depends on the size of your datasets</li>
+<li>R Version: Chevruel requires R version 4.4 or greater</li>
+</ul>
+<p>It’s important to note that these requirements can vary based on the size and complexity of your dataset. As the number of cells increases, so do the hardware requirements. For instance: A dataset with around 8,000 cells can be analyzed with 8 GB of RAM. For larger datasets or more complex analyses, 64-128 GB of RAM can be beneficial.</p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
