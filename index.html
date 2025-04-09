@@ -109,22 +109,24 @@ Chevreul loads three <a href="http://bioconductor.org/" class="external-link">Bi
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cobriniklab/chevreul" class="external-link">chevreul</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load and view example dataset</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"tiny_sce"</span><span class="op">)</span></span>
-<span><span class="va">tiny_sce</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"small_example_dataset"</span><span class="op">)</span></span>
+<span><span class="va">small_example_dataset</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="run-clustering-on-a-single-object">Run clustering on a single object<a class="anchor" aria-label="anchor" href="#run-clustering-on-a-single-object"></a>
 </h3>
 <p>The <code>sce_clustering_workflow()</code> function performs key processing steps, including quality control filtering, normalization and log transformation, dimensionality reduction, Louvain clustering across various resolutions, and the identification of cluster-specific marker genes or transcripts.</p>
 <!--  #BB default resolution is set to 0.6 ?  : By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.-->
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tiny_sce_processed</span> <span class="op">&lt;-</span> <span class="fu">sce_clustering_workflow</span><span class="op">(</span><span class="va">tiny_sce</span>, resolution <span class="op">=</span> <span class="fl">0.6</span>, experiment_name <span class="op">=</span> <span class="st">"sce"</span>, organism <span class="op">=</span> <span class="st">"human"</span>, process <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co">## BB: when Error in mat[, n_dimred, drop = FALSE] : subscript out of bounds</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"medium_example_dataset"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">medium_example_dataset_processed</span> <span class="op">&lt;-</span> <span class="fu">sce_clustering_workflow</span><span class="op">(</span><span class="va">medium_example_dataset</span>, resolution <span class="op">=</span> <span class="fl">0.6</span>, experiment_name <span class="op">=</span> <span class="st">"sce"</span>, organism <span class="op">=</span> <span class="st">"human"</span><span class="op">)</span> </span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="get-a-first-look-at-a-processed-dataset-using-an-interactive-shiny-app">Get a first look at a processed dataset using an interactive shiny app<a class="anchor" aria-label="anchor" href="#get-a-first-look-at-a-processed-dataset-using-an-interactive-shiny-app"></a>
 </h3>
 <p>The function <code>minimalChevreulApp</code> opens an interactive shiny application that can be used for visualization and exploration of the processed dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">minimalChevreulApp</span><span class="op">(</span><span class="va">tiny_sce_processed</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">minimalChevreulApp</span><span class="op">(</span><span class="va">tiny_sce</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -150,6 +152,11 @@ Chevreul loads three <a href="http://bioconductor.org/" class="external-link">Bi
 <li>R Version: Chevruel requires R version 4.4 or greater</li>
 </ul>
 <p>It’s important to note that these requirements can vary based on the size and complexity of your dataset. As the number of cells increases, so do the hardware requirements. For instance: A dataset with around 8,000 cells can be analyzed with 8 GB of RAM. For larger datasets or more complex analyses, 64-128 GB of RAM can be beneficial.</p>
+</div>
+<div class="section level2">
+<h2 id="learn-more">Learn More<a class="anchor" aria-label="anchor" href="#learn-more"></a>
+</h2>
+<p>To learn more about the usage of Bioconductor tools for single-cell RNA-seq analysis. Consult the book <a href="https://bioconductor.org/books/release/OSCA/" target="_blank" rel="noopener noreferrer" class="external-link">Orchestrating Single-Cell Analysis with Bioconductor</a>. The book walks through common workflows for the analysis of single-cell RNA-seq data (scRNA-seq). This book will show you how to make use of cutting-edge Bioconductor tools to process, analyze, visualize, and explore scRNA-seq data</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
