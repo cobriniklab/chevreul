@@ -101,8 +101,8 @@ provided with the package.
 library(chevreul)
 
 # Load and view example dataset
-data("tiny_sce")
-tiny_sce
+data("small_example_dataset")
+small_example_dataset
 ```
 
 ### Run clustering on a single object
@@ -116,7 +116,9 @@ genes or transcripts.
 <!--  #BB default resolution is set to 0.6 ?  : By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.-->
 
 ``` r
-tiny_sce_processed <- sce_clustering_workflow(tiny_sce, resolution = 0.6, experiment_name = "sce", organism = "human", process = FALSE) ## BB: when Error in mat[, n_dimred, drop = FALSE] : subscript out of bounds
+data("medium_example_dataset")
+
+medium_example_dataset_processed <- sce_clustering_workflow(medium_example_dataset, resolution = 0.6, experiment_name = "sce", organism = "human") 
 ```
 
 ### Get a first look at a processed dataset using an interactive shiny app
@@ -126,7 +128,7 @@ that can be used for visualization and exploration of the processed
 dataset.
 
 ``` r
-minimalChevreulApp(tiny_sce_processed)
+minimalChevreulApp(tiny_sce)
 ```
 
 ## Transcript-level quantification
@@ -174,3 +176,14 @@ size and complexity of your dataset. As the number of cells increases,
 so do the hardware requirements. For instance: A dataset with around
 8,000 cells can be analyzed with 8 GB of RAM. For larger datasets or
 more complex analyses, 64-128 GB of RAM can be beneficial.
+
+## Learn More
+
+To learn more about the usage of Bioconductor tools for single-cell
+RNA-seq analysis. Consult the book
+<a href="https://bioconductor.org/books/release/OSCA/" target="_blank" rel="noopener noreferrer">Orchestrating
+Single-Cell Analysis with Bioconductor</a>. The book walks through
+common workflows for the analysis of single-cell RNA-seq data
+(scRNA-seq). This book will show you how to make use of cutting-edge
+Bioconductor tools to process, analyze, visualize, and explore scRNA-seq
+data
