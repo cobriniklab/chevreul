@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-04-09T17:15Z
+last_built: 2025-05-20T05:41Z
 urls:
   reference: https://cobriniklab.github.io/chevreul/reference
   article: https://cobriniklab.github.io/chevreul/articles
