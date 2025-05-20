@@ -21,7 +21,7 @@ single cell RNA sequencing (scRNA-seq) datasets processed as
 
 A demo with a developing human retina scRNA-seq dataset from Shayler et
 al. is available
-<a href="http://cobrinik-1.saban-chla.usc.edu:8080/app/objectApp" target="_blank" rel="noopener noreferrer">here</a>
+<a href="https://cobrinik-1.saban-chla.usc.edu/shiny/chevreul_demo/" target="_blank" rel="noopener noreferrer">here</a>
 
 Chevreul includes tools for:
 
@@ -29,9 +29,8 @@ Chevreul includes tools for:
 - Louvain clustering at a range of resolutions
 - Dimensionality reduction of raw sequencing data.
 - Integration (batch correction) of multiple datasets
-  <!--BB <(has been removed)-   Cell cycle state regression and labeling> -->
 
-> \[!WARNING\] chevreul was designed for full-length smart-seq based
+> \[!WARNING\] Chevreul was designed for full-length smart-seq based
 > single cell data. Default settings may not be appropriate for droplet
 > (10x) data, though most can be adjusted. Keep in mind best practices
 > regarding normalization, dimensional reduction, etc. when using.
@@ -50,7 +49,7 @@ of SingleCellExperiments, respectively.
 
 `Chevreul` depends on a minimum R version \>=4.4 Get the latest stable
 `R` release from [CRAN](http://cran.r-project.org/). Then install
-`chevreul` and its dependencies using the following code:
+`Chevreul` and its dependencies using the following code:
 
 ``` r
 install.packages("remotes")
@@ -112,8 +111,6 @@ including quality control filtering, normalization and log
 transformation, dimensionality reduction, Louvain clustering across
 various resolutions, and the identification of cluster-specific marker
 genes or transcripts.
-
-<!--  #BB default resolution is set to 0.6 ?  : By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.-->
 
 ``` r
 data("medium_example_dataset")
