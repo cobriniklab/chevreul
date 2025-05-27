@@ -21,7 +21,7 @@ single cell RNA sequencing (scRNA-seq) datasets processed as
 
 A demo with a developing human retina scRNA-seq dataset from Shayler et
 al. is available
-<a href="https://cobrinik-1.saban-chla.usc.edu/shiny/chevreul_demo/" target="_blank" rel="noopener noreferrer">here</a>
+<a href="https://cobrinik-1.saban-chla.usc.edu/shinyproxy/app/chevreul" target="_blank" rel="noopener noreferrer">here</a>
 
 Chevreul includes tools for:
 
