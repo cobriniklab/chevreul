@@ -5,3 +5,7 @@
 .DS_Store
 .quarto
 docs
+dockerapp
+dockerdata
+euler
+Rprofile.site
