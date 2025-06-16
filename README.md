@@ -15,9 +15,21 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 coverage](https://codecov.io/gh/cobriniklab/chevreul/graph/badge.svg)](https://app.codecov.io/gh/cobriniklab/chevreul)
 <!-- badges: end -->
 
-This package includes a set of Shiny apps for interactive exploration of
-single cell RNA sequencing (scRNA-seq) datasets processed as
-<a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" target="_blank" rel="noopener noreferrer">SingleCellExperiments</a>
+Chevreul is an R package (actually, a meta-package) for processing and
+integration of single cell RNA sequencing (scRNA-seq) datasets processed
+as
+<a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" target="_blank" rel="noopener noreferrer">SingleCellExperiment</a>
+objects.
+
+Chevreul loads three [Bioconductor](http://bioconductor.org/) packages
+
+1.  [`chevreulProcess`](https://github.com/cobriniklab/chevreulProcess)
+2.  [`chevreulPlot`](https://github.com/cobriniklab/chevreulPlot)
+3.  [`chevreulShiny`](https://github.com/cobriniklab/chevreulShiny)
+
+These enable standardized processing, plotting, and interactive analysis
+of SingleCellExperiments, respectively. All functionality contained in
+the three constituent packages is accessible directly from Chevreul.
 
 A demo with a developing human retina scRNA-seq dataset from Shayler et
 al. is available
@@ -36,16 +48,6 @@ Chevreul includes tools for:
 > regarding normalization, dimensional reduction, etc. when using.
 
 ## Installation instructions
-
-Chevreul depends on a minimum R version 4.4. The current  
-Chevreul loads three [Bioconductor](http://bioconductor.org/) packages
-
-1.  [`chevreulProcess`](https://github.com/cobriniklab/chevreulProcess)
-2.  [`chevreulPlot`](https://github.com/cobriniklab/chevreulPlot)
-3.  [`chevreulShiny`](https://github.com/cobriniklab/chevreulShiny)
-
-These enable standardized processing, plotting, and interactive analysis
-of SingleCellExperiments, respectively.
 
 `Chevreul` depends on a minimum R version \>=4.4 Get the latest stable
 `R` release from [CRAN](http://cran.r-project.org/). Then install
